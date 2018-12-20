@@ -1,27 +1,27 @@
 let map;
 
 var circles = {
-	Volcano: { color: ' #ff0000' },
-	WildFire: { color: '#ff6600' },
-	Fire: { color: ' #ff6600' },
-	HeatWave: { color: ' #ff6600' },
-	Drought: { color: '#996633' },
-	Earthquake: { color: '#996633' },
-	LandSlide: { color: '#996633' },
-	MudSlide: { color: '#996633' },
-	Epidemic: { color: '#e6e600' },
-	InsectInfestation: { color: '#5cd65c' },
-	SnowAvalanche: { color: '#afd5ff' },
-	ColdWave: { color: '#99ccff' },
-	Flood: { color: '#0066cc' },
-	FlashFlood: { color: '#0059b3' },
-	Tsunami: { color: '#0059b3' },
-	TropicalCyclone: { color: '#737373' },
-	StormSurge: { color: '#737373' },
-	SevereLocalStorm: { color: '#737373' },
-	ExtratropicalCyclone: { color: '#737373' },
-	TechnologicalDisaster: { color: ' #000000' },
-	Other: { color: '#000000' },
+	// Volcano: { color: ' #ff0000' },
+	// WildFire: { color: '#ff6600' },
+	// Fire: { color: ' #ff6600' },
+	// HeatWave: { color: ' #ff6600' },
+	Drought: { color: '#E78D28' },// orange
+	Earthquake: { color: '#8C4309' },// brown
+	// LandSlide: { color: '#996633' },
+	MudSlide: { color: '#B25D1B' },// light brown
+	Epidemic: { color: '#19A309' },// green
+	// InsectInfestation: { color: '#5cd65c' },
+	// SnowAvalanche: { color: '#afd5ff' },
+	// ColdWave: { color: '#99ccff' },
+	Flood: { color: '#0FD6CD' },// light blue
+	// FlashFlood: { color: '#0059b3' },
+	// Tsunami: { color: '#1F8FD8' },// blue
+	TropicalCyclone: { color: '#2B47AD' },// another shade of blue
+	// StormSurge: { color: '#737373' },
+	// SevereLocalStorm: { color: '#737373' },
+	// ExtratropicalCyclone: { color: '#737373' },
+	// TechnologicalDisaster: { color: ' #000000' },
+	// Other: { color: '#000000' },
 };
 
 function initMap(makeMapLegend = true) {
