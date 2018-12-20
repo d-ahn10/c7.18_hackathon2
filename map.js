@@ -16,7 +16,7 @@ var circles = {
 	Flood: { color: '#0FD6CD' },// light blue
 	// FlashFlood: { color: '#0059b3' },
 	// Tsunami: { color: '#1F8FD8' },// blue
-	TropicalCyclone: { color: '#2B47AD' },// another shade of blue
+	TropicalCyclone: { color: '#1F7BD1' },// another shade of blue
 	// StormSurge: { color: '#737373' },
 	// SevereLocalStorm: { color: '#737373' },
 	// ExtratropicalCyclone: { color: '#737373' },
@@ -88,10 +88,10 @@ function placeMarkers(array) {
 	        clickable: true,
 	        draggable: false,
 	        map: map,
-	        radius: (60 * 15000),
+	        radius: (60 * 9500),
 	        data: { Title: item.title }
 		});
-		google.maps.event.addListener(circle, 'click', function(ev){
+		google.maps.event.addListener(circle, 'click', function(){//ev param
 			infowindow.setPosition(circle.getCenter());
 
 			if (activeInfoWindow) {
@@ -103,11 +103,16 @@ function placeMarkers(array) {
 			requestNewsData(item.keywords);
       		searchTwitter(item.keywords);
 		});
-		google.maps.event.addListener(circle, 'mouseover', function(ev){
+		google.maps.event.addListener(circle, 'mouseover', function(){//ev param
 			circle.set('fillOpacity', 0.9);
 		});
-		google.maps.event.addListener(circle, 'mouseout', function(ev){
+		google.maps.event.addListener(circle, 'mouseout', function(){//ev param
 			circle.set('fillOpacity', 0.6);
+		});
+
+		map.addListener('zoom_changed', function(){
+			const radius = Math.exp((21-map.zoom)*Math.LN2)
+			circle.setRadius(radius)
 		});
 	}
 }
