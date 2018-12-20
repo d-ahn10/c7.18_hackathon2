@@ -25,5 +25,5 @@ function clickHandlers(){
 
 function renderGoogleMarkers(){
     placeMarkers(listOfDisasters);
-    console.log(listOfDisasters);
+    // console.log(listOfDisasters);
 }

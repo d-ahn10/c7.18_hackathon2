@@ -61,7 +61,11 @@ var activeInfoWindow;
 
 function placeMarkers(array) {
 	for (let i = 0; i < array.length; i++) {
+		// debugger;
 		const item = array[i];
+		if(item.location === undefined){//some location coordinates come back undefined and throws an error
+			continue;
+		}
 		let latLng = new google.maps.LatLng(item.location.lat,item.location.lon);
 		let infowindow = new google.maps.InfoWindow({
 		  content: 
