@@ -28,7 +28,7 @@ function initMap(makeMapLegend = true) {
 	map = new google.maps.Map(document.getElementById('map'), {
 	zoom: 2,
 	mapTypeId: 'roadmap',
-	center: {lat: 13.4443, lng: 144.7937},
+	center: {lat: 21.140869, lng: -9.759753},
 	mapTypeControl: true,
 	// scrollwheel: false,
 	mapTypeControlOptions: {
