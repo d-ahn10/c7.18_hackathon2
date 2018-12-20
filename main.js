@@ -3,7 +3,7 @@ $(document).ready(start)
 function start(){
     clickHandlers();
     initMap();
-    getDataForFire()
+    // getDataForFire();
     getDataFromEarthquakeUSGS();
     getDataFromReliefWeb();
     searchTwitter();

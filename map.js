@@ -26,9 +26,9 @@ var circles = {
 
 function initMap(makeMapLegend = true) {
 	map = new google.maps.Map(document.getElementById('map'), {
-	zoom: 2,
+	zoom: 1.8,
 	mapTypeId: 'roadmap',
-	center: {lat: 21.140869, lng: -9.759753},
+	center: {lat: 28.243908, lng: 3.268914},
 	mapTypeControl: true,
 	// scrollwheel: false,
 	mapTypeControlOptions: {
