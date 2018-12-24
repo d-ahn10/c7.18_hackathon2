@@ -15,7 +15,7 @@ var circles = {
 	// ColdWave: { color: '#99ccff' },
 	Flood: { color: '#0FD6CD' },// light blue
 	// FlashFlood: { color: '#0059b3' },
-	// Tsunami: { color: '#1F8FD8' },// blue
+	Tsunami: { color: '#1F8FD8' },// blue
 	TropicalCyclone: { color: '#1F7BD1' },// another shade of blue
 	// StormSurge: { color: '#737373' },
 	// SevereLocalStorm: { color: '#737373' },
