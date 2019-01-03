@@ -21,7 +21,8 @@ function getDataFromEarthquakeUSGSSuccess(responseData){
                 lat: earthquakeItem.geometry.coordinates[1],
                 lon: earthquakeItem.geometry.coordinates[0],
             },
-            keywords: getEarthquakeLocation(earthquakeItem.properties.title).toLowerCase() + ' earthquake',
+            // keywords: getEarthquakeLocation(earthquakeItem.properties.title).toLowerCase() + ' earthquake',
+            keywords: getEarthquakeLocation(earthquakeItem.properties.title) + ' earthquake',
             url: earthquakeItem.properties.url,
         }
         listOfDisasters.push(earthquake)
