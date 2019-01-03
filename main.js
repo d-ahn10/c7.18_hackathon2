@@ -3,7 +3,7 @@ $(document).ready(start)
 function start(){
     clickHandlers();
     initMap();
-    getDataForFire()
+    // getDataForFire();
     getDataFromEarthquakeUSGS();
     getDataFromReliefWeb();
     searchTwitter();
@@ -25,5 +25,5 @@ function clickHandlers(){
 
 function renderGoogleMarkers(){
     placeMarkers(listOfDisasters);
-    console.log(listOfDisasters);
+    // console.log(listOfDisasters);
 }

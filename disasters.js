@@ -30,7 +30,7 @@ function getDataFromReliefWebSuccess(responseData){
         }
     }
     deleteDuplicateData(listOfDisasters);
-    easterEgg();
+    // easterEgg();
     // placeMarkers(listOfDisasters);
     // console.log(listOfDisasters);
 }
