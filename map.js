@@ -1,34 +1,34 @@
 let map;
 
 var circles = {
-	Volcano: { color: ' #ff0000' },
-	WildFire: { color: '#ff6600' },
-	Fire: { color: ' #ff6600' },
-	HeatWave: { color: ' #ff6600' },
-	Drought: { color: '#996633' },
-	Earthquake: { color: '#996633' },
-	LandSlide: { color: '#996633' },
-	MudSlide: { color: '#996633' },
-	Epidemic: { color: '#e6e600' },
-	InsectInfestation: { color: '#5cd65c' },
-	SnowAvalanche: { color: '#afd5ff' },
-	ColdWave: { color: '#99ccff' },
-	Flood: { color: '#0066cc' },
-	FlashFlood: { color: '#0059b3' },
-	Tsunami: { color: '#0059b3' },
-	TropicalCyclone: { color: '#737373' },
-	StormSurge: { color: '#737373' },
-	SevereLocalStorm: { color: '#737373' },
-	ExtratropicalCyclone: { color: '#737373' },
-	TechnologicalDisaster: { color: ' #000000' },
-	Other: { color: '#000000' },
+	// Volcano: { color: ' #ff0000' },
+	// WildFire: { color: '#ff6600' },
+	// Fire: { color: ' #ff6600' },
+	// HeatWave: { color: ' #ff6600' },
+	Drought: { color: '#E78D28' },// orange
+	Earthquake: { color: '#8C4309' },// brown
+	// LandSlide: { color: '#996633' },
+	MudSlide: { color: '#B25D1B' },// light brown
+	Epidemic: { color: '#19A309' },// green
+	// InsectInfestation: { color: '#5cd65c' },
+	// SnowAvalanche: { color: '#afd5ff' },
+	// ColdWave: { color: '#99ccff' },
+	Flood: { color: '#0FD6CD' },// light blue
+	// FlashFlood: { color: '#0059b3' },
+	Tsunami: { color: '#1F8FD8' },// blue
+	TropicalCyclone: { color: '#1F7BD1' },// another shade of blue
+	// StormSurge: { color: '#737373' },
+	// SevereLocalStorm: { color: '#737373' },
+	// ExtratropicalCyclone: { color: '#737373' },
+	// TechnologicalDisaster: { color: ' #000000' },
+	// Other: { color: '#000000' },
 };
 
 function initMap(makeMapLegend = true) {
 	map = new google.maps.Map(document.getElementById('map'), {
-	zoom: 2,
+	zoom: 1.8,
 	mapTypeId: 'roadmap',
-	center: {lat: 13.4443, lng: 144.7937},
+	center: {lat: 28.243908, lng: 3.268914},
 	mapTypeControl: true,
 	// scrollwheel: false,
 	mapTypeControlOptions: {
@@ -61,7 +61,11 @@ var activeInfoWindow;
 
 function placeMarkers(array) {
 	for (let i = 0; i < array.length; i++) {
+		// debugger;
 		const item = array[i];
+		if(item.location === undefined){//some location coordinates come back undefined and throws an error
+			continue;
+		}
 		let latLng = new google.maps.LatLng(item.location.lat,item.location.lon);
 		let infowindow = new google.maps.InfoWindow({
 		  content: 
@@ -84,10 +88,10 @@ function placeMarkers(array) {
 	        clickable: true,
 	        draggable: false,
 	        map: map,
-	        radius: (60 * 15000),
+	        radius: (60 * 9500),
 	        data: { Title: item.title }
 		});
-		google.maps.event.addListener(circle, 'click', function(ev){
+		google.maps.event.addListener(circle, 'click', function(){//ev param
 			infowindow.setPosition(circle.getCenter());
 
 			if (activeInfoWindow) {
@@ -99,11 +103,16 @@ function placeMarkers(array) {
 			requestNewsData(item.keywords);
       		searchTwitter(item.keywords);
 		});
-		google.maps.event.addListener(circle, 'mouseover', function(ev){
+		google.maps.event.addListener(circle, 'mouseover', function(){//ev param
 			circle.set('fillOpacity', 0.9);
 		});
-		google.maps.event.addListener(circle, 'mouseout', function(ev){
+		google.maps.event.addListener(circle, 'mouseout', function(){//ev param
 			circle.set('fillOpacity', 0.6);
+		});
+
+		map.addListener('zoom_changed', function(){
+			const radius = Math.exp((21-map.zoom)*Math.LN2)
+			circle.setRadius(radius)
 		});
 	}
 }
